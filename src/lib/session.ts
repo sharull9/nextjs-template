@@ -1,3 +1,4 @@
+import { COOKIE_NAME } from '@/constants';
 import { JWTPayload, SignJWT, jwtVerify } from 'jose';
 import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
@@ -6,8 +7,6 @@ import 'server-only';
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
-
-export const COOKIE_NAME = 'session';
 
 export const cookieOptions: Partial<ResponseCookie> = {
     httpOnly: true,
